@@ -56,7 +56,7 @@ def metadata():
         f.write(data)
         f.close
 
-session = vk.AuthSession(app_id='5510847', user_login='sviridenkot@gmail.com', user_password='318653o79')
+session = vk.AuthSession(app_id='', user_login='', user_password='')
 api = vk.API(session)
 userslist = []
 
