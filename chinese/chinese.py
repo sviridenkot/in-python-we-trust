@@ -40,7 +40,7 @@ def delete_punct(file):
 
 def create_xml(d, sents):    
     punct = string.punctuation
-    lst = []  
+    l = []  
     html = etree.Element("html")
     head = etree.SubElement(html, "head")
     body = etree.SubElement(html, "body")
@@ -49,19 +49,19 @@ def create_xml(d, sents):
         se = etree.SubElement(body, "se")
         maxlen = len(sent)
         while maxlen > 0:
-            current = sent[0:maxlen]
-            if current in d:
-                lst.append((current, d[current]))
+            cur = sent[0:maxlen]
+            if cur in d:
+                l.append((cur, d[cur]))
                 w = etree.SubElement(se, "w")
-                ana = etree.SubElement(w, "ana", lex=current,transcr=d[current]['transcr'], sem=d[current]['sem'])
-                ana.tail = current
+                ana = etree.SubElement(w, "ana", lex = cur, transcr = d[cur]['transcr'], sem = d[cur]['sem'])
+                ana.tail = cur
                 sent = sent[maxlen:]
                 maxlen = len(sent)
                 continue
             else:
                 maxlen -= 1
-    with open("stal_processed.xml", "w", encoding="utf-8") as f1:
-        f1.write(etree.tostring(html, encoding="utf-8", xml_declaration=True, pretty_print=True).decode("utf-8"))
+    with open("stal_processed.xml", "w", encoding = "utf-8") as f:
+        f.write(etree.tostring(html, encoding = "utf-8", xml_declaration = True, pretty_print = True).decode("utf-8"))
         
 
 chinaDict = create_dict('cedict_ts.u8')
