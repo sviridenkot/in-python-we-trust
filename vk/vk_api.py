@@ -4,8 +4,8 @@ from time import sleep
 def create_userslist():
     query = api.users.search(hometown = 'Тарко-Сале', count = 500)
     query.remove(query[0])
-    for f in query:
-        userslist.append(f['uid'])
+    for q in query:
+        userslist.append(q['uid'])
         
 def get_wall():
     for user in userslist:
@@ -56,7 +56,7 @@ def metadata():
         f.write(data)
         f.close
 
-session = vk.AuthSession(app_id='5510847', user_login='sviridenkot@gmail.com', user_password='318653o79')
+session = vk.AuthSession(app_id='', user_login='', user_password='')
 api = vk.API(session)
 userslist = []
 
