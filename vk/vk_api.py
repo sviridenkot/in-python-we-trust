@@ -4,8 +4,8 @@ from time import sleep
 def create_userslist():
     query = api.users.search(hometown = 'Тарко-Сале', count = 500)
     query.remove(query[0])
-    for f in query:
-        userslist.append(f['uid'])
+    for q in query:
+        userslist.append(q['uid'])
         
 def get_wall():
     for user in userslist:
